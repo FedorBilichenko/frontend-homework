@@ -53,4 +53,35 @@ QUnit.module('Тестируем функцию letters', function () {
 		assert.strictEqual(letters('от топота копыт', false), 'а копыт');
 		assert.strictEqual(letters('hello world', false), 'he world');
 	});
+
+    QUnit.test('Проверка первого входного параметра', function (assert) {
+        assert.strictEqual(letters(123), null);
+        assert.strictEqual(letters({}), null);
+        assert.strictEqual(letters(null), null);
+        assert.strictEqual(letters(opa => {return opa;}), null);
+
+        assert.strictEqual(letters(123, true), null);
+        assert.strictEqual(letters({}, true), null);
+        assert.strictEqual(letters(null, true), null);
+        assert.strictEqual(letters(opa => {return opa;}, true), null);
+
+        assert.strictEqual(letters(123, false), null);
+        assert.strictEqual(letters({}, false), null);
+        assert.strictEqual(letters(null, false), null);
+        assert.strictEqual(letters(opa => {return opa;}, false), null);
+	});
+
+	QUnit.test('Проверка второго входного параметра', function (assert) {
+		assert.strictEqual(letters('Hello world', 'ныа'), null);
+        assert.strictEqual(letters('Hello world', 123), null);
+        assert.strictEqual(letters('Hello world', {}), null);
+        assert.strictEqual(letters('Hello world', null), null);
+        assert.strictEqual(letters('Hello world', opa => {return opa;}), null);
+
+        assert.strictEqual(letters('Hello world', 'ныа'), null);
+        assert.strictEqual(letters('Hello world', 123), null);
+        assert.strictEqual(letters('Hello world', {}), null);
+        assert.strictEqual(letters('Hello world', null), null);
+        assert.strictEqual(letters('Hello world', opa => {return opa;}), null);
+    });
 });
