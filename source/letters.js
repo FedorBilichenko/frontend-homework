@@ -31,8 +31,5 @@ const letters = (str, mode) => {
         return alphabet[symbol] === 1;
     });
 
-    if (!mode) {
-        return newStr.reverse().join('');
-    }
-    return newStr.join('');
+    return mode ? newStr.join('') : newStr.reverse().join('');
 };
